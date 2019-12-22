@@ -1,0 +1,1083 @@
+@font-face {
+    font-family: "Monserat";
+    src: url(/static/fonts/Montserrat-Medium.ttf);
+  }
+  
+  @colorWhite: #fefefe;
+  @colorMap: rgb(214, 117, 117);
+  @colorNews: rgb(122, 130, 194);
+  @colorCity: rgb(95, 189, 109);
+  @back: #f1f1f1;
+  @colorInterest: rgb(212, 206, 77);
+  @colorJustice: rgb(167, 64, 141);
+  @colorTotal: #22ae8b;
+  @colorBlack: #404040;
+  
+  * {
+    margin: 0;
+    box-sizing: border-box !important;
+    padding: 0;
+  
+    font-family: "Monserat", sans-serif !important;
+  }
+  
+  html {
+    font-size: 14px;
+  }
+  
+  a {
+    text-decoration: none !important;
+  }
+  
+  .none {
+    opacity: 0;
+    cursor: default;
+  
+    &-two {
+      border-bottom: 2px solid @colorJustice;
+      cursor: pointer;
+    }
+  }
+  
+  .none__two {
+    opacity: 0;
+    cursor: default;
+  
+    &-two {
+      border-bottom: 2px solid @colorNews;
+      cursor: pointer;
+    }
+  }
+  
+  body {
+    height: 100%;
+    width: 100%;
+  }
+  
+  nav {
+    z-index: 9999999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    padding: 10% 0 5%;
+    left: 0;
+    position: fixed;
+    min-height: 100%;
+    width: 60px;
+    background: @colorWhite;
+    transition: 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 5px;
+  
+    & #btnMenu {
+      display: none;
+    }
+  
+    & > * {
+      font-size: 1rem;
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 60px;
+      display: flex;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: @colorBlack;
+      transition: 0.5s ease;
+  
+      &:nth-child(2) {
+        & > span {
+          -webkit-mask: url(../img/Icon/1.svg) no-repeat;
+          mask: url(../img/Icon/1.svg) no-repeat;
+        }
+  
+        &:after {
+          background-color: @colorNews;
+        }
+      }
+  
+      &:nth-child(3) {
+        & > span {
+          -webkit-mask: url(../img/Icon/2.svg) no-repeat;
+          mask: url(../img/Icon/2.svg) no-repeat;
+        }
+  
+        &:after {
+          background-color: @colorCity;
+        }
+      }
+  
+      &:nth-child(4) {
+        & > span {
+          -webkit-mask: url(../img/Icon/3.svg) no-repeat;
+          mask: url(../img/Icon/3.svg) no-repeat;
+        }
+  
+        &:after {
+          background-color: @colorInterest;
+        }
+      }
+  
+      &:nth-child(5) {
+        & > span {
+          -webkit-mask: url(../img/Icon/4.svg) no-repeat;
+          mask: url(../img/Icon/4.svg) no-repeat;
+        }
+  
+        &:after {
+          background-color: @colorJustice;
+        }
+      }
+  
+      &:nth-child(6) {
+        & > span {
+          -webkit-mask: url(../img/Icon/ss.svg) no-repeat;
+          mask: url(../img/Icon/ss.svg) no-repeat;
+        }
+  
+        &:after {
+          background-color: @colorMap;
+        }
+      }
+  
+      &:hover span {
+        background: @colorWhite;
+      }
+  
+      &:hover {
+        border-right: 5px solid @colorTotal;
+        color: @colorWhite;
+      }
+  
+      @media screen and (max-width: 768px) {
+        &:hover {
+          border: none !important;
+        }
+      }
+  
+      &:after {
+        display: block;
+        position: absolute;
+        right: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+        width: 0; /*задаём длинну линии до наведения курсора*/
+        height: 60px; /*задаём ширину линии*/
+        // background-color: @colorBlack; /*задаём цвет линии*/
+        content: "";
+        transition: width 0.3s ease-out; /*задаём время анимации*/
+        z-index: -99999;
+      }
+  
+      &:hover:after {
+        width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+      }
+  
+      & > p {
+        padding-top: 16px;
+        min-width: 150px;
+      }
+  
+      & > span {
+        margin-top: 5px;
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        background: @colorTotal;
+        transition: 0.2s ease;
+      }
+  
+      & > img {
+        height: 100%;
+        width: 50px;
+        margin-right: 5px;
+      }
+    }
+  
+    &:hover {
+      width: 200px;
+  
+      & .navbar-nav {
+        opacity: 1;
+      }
+    }
+  
+    & img {
+      position: absolute;
+      top: 20px;
+      width: 90%;
+      border: none;
+  
+      &:hover {
+        border: none;
+      }
+  
+      @media screen and (max-width: 768px) {
+        & {
+          top: 10px;
+          width: 50%;
+          left: 5px;
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    nav {
+      opacity: 1;
+      z-index: 9999999;
+      min-height: 50px;
+      height: 80px;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0;
+      transition: 0.2s ease;
+  
+      &:hover {
+        width: 100%;
+      }
+  
+      & > span {
+        margin: 30px auto;
+      }
+  
+      & .nav__link {
+        width: 250px;
+        height: 250px;
+        flex-direction: column;
+        text-align: center;
+        display: none;
+  
+        & > span {
+          width: 100px;
+          height: 100px;
+          margin: 0 auto;
+          margin-bottom: 10px;
+        }
+      }
+  
+      & #btnMenu {
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        z-index: 99999999;
+        background: url(../img/menu.svg);
+        width: 60px;
+        height: 60px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  
+    & .out {
+      transform: translateY(-100%);
+    }
+  }
+  
+  // образец
+  section {
+    border: 1px solid @colorTotal;
+    background: @back;
+    min-height: 100vh;
+    padding-left: 60px;
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding: 0;
+        padding-top: 80px;
+      }
+    }
+  }
+  
+  /*Классы ждя JS*/
+  .menuShow {
+    height: 100%;
+    padding: 150px 0 0 0;
+  
+    & > *,
+    & span {
+      display: block !important;
+    }
+  }
+  
+  .navbar-nav {
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+    top: 80px;
+    left: 50px;
+    transition: 0.2s;
+    overflow: visible;
+  
+    @media screen and (max-width: 768px) {
+      & {
+        display: none;
+      }
+    }
+  
+    &:hover {
+      border: none;
+    }
+  
+    & img {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      left: -23px;
+      top: 10px;
+    }
+  
+    & a {
+      color: #8f8f8f !important;
+    }
+  }
+  /*******************************************/
+  .content-container {
+    margin: 0 auto;
+    max-width: 1080px;
+    padding-top: 50px;
+  }
+  
+  .mapsBlock {
+    & * {
+      color: @colorBlack;
+    }
+  
+    & h1 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      border-left: 8px solid @colorMap;
+    }
+  
+    &__maps {
+      @media screen and (max-width: 768px) {
+        & {
+          padding: 0 10px;
+        }
+      }
+  
+      &__map {
+        & h2 {
+          font-size: 2rem;
+          margin-bottom: 20px;
+        }
+  
+        & p {
+          font-size: 1rem;
+          padding: 10px 0 50px;
+  
+          & a {
+            border-bottom: 2px solid @colorTotal;
+          }
+        }
+  
+        & iframe {
+          border-radius: 5px;
+          width: 100%;
+          height: 60vh;
+          border: none;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          border: 3px solid @colorTotal;
+        }
+      }
+    }
+  }
+  
+  .justiceBlock {
+    & * {
+      color: @colorBlack;
+    }
+  
+    & h1 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      border-left: 8px solid @colorJustice;
+    }
+  
+    .items {
+      display: flex;
+      flex-direction: column;
+      &__item {
+        transition: 0.2s ease;
+        &:hover {
+          background-color: rgba(173, 60, 135, 0.103);
+        }
+        box-sizing: content-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background: @colorWhite;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        padding: 0 5px;
+        & * {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  
+    .hide,
+    .hide + label ~ div {
+      display: none;
+    }
+    /* вид текста label */
+    .hide + label {
+      margin: 0;
+      padding: 10px 0;
+      color: @colorBlack;
+      cursor: pointer;
+      display: inline-block;
+    }
+    /* вид текста label при активном переключателе */
+    .hide:checked + label {
+      color: @colorJustice;
+      border-bottom: 0;
+    }
+    /* когда чекбокс активен показываем блоки с содержанием  */
+    .hide:checked + label + div {
+      display: block;
+      margin-left: 20px;
+      padding: 10px;
+      /* чуточку анимации при появлении */
+      -webkit-animation: fade ease-in 0.5s;
+      -moz-animation: fade ease-in 0.5s;
+      animation: fade ease-in 0.5s;
+    }
+    /* анимация при появлении скрытых блоков */
+    @-moz-keyframes fade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes fade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes fade {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .hide + label:before {
+      background-color: @colorJustice;
+      color: @colorWhite;
+      content: "\002B";
+      display: block;
+      float: left;
+      font-size: 14px;
+      font-weight: bold;
+      height: 20px;
+      line-height: 16px;
+      margin: 3px 5px;
+      text-align: center;
+      width: 20px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 20%;
+      padding-top: 2px;
+    }
+    .hide:checked + label:before {
+      content: "\2212";
+    }
+  }
+  
+  #mapBlock {
+    & * {
+      cursor: default;
+    }
+    color: @colorWhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    }
+  
+    & span {
+      background-color: @colorWhite;
+    }
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding-top: 50px;
+        box-shadow: none;
+        background-color: @colorMap;
+        border-radius: 2200px;
+  
+        &:after {
+          width: 0; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+        }
+      }
+    }
+  }
+  
+  #justiceBlock {
+    & * {
+      cursor: default;
+    }
+    color: @colorWhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%;
+    }
+  
+    & span {
+      background-color: @colorWhite;
+    }
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding-top: 50px;
+        box-shadow: none;
+        background-color: @colorJustice;
+        border-radius: 2200px;
+  
+        &:after {
+          width: 0;
+        }
+      }
+    }
+  }
+  
+  .newsBlock {
+    & h1 {
+      border-left: 8px solid @colorNews;
+      margin-bottom: 40px;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+  
+  
+      .items {
+        display: flex;
+        flex-direction: column;
+        &__item {
+          margin-bottom: 140px;
+          position: relative;
+          min-height: 300px;
+          border-radius: 5px;
+          background-color: @back;
+  
+          @media screen and (max-width: 768px) {
+            & > * {
+              padding-left: 5px;
+            }
+          }
+  
+          & .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(253, 253, 253, 0.404);
+            border-radius: 10px;
+          }
+  
+          & h3 {
+            padding-top: 100px;
+            font-size: 2rem;
+          }
+  
+          &__photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+  
+          transition: 0.2s ease;
+          &:hover {
+            background-color: @colorWhite;
+          }
+          box-sizing: content-box;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          background: @colorWhite;
+          display: flex;
+          flex-direction: column;
+  
+          & * {
+            font-size: 1.5rem;
+          }
+        }
+      }
+  
+      .hide,
+      .hide + label ~ div {
+        display: none;
+      }
+      /* вид текста label */
+      .hide + label {
+        margin: 0;
+        padding: 10px 0;
+        color: @colorBlack;
+        cursor: pointer;
+        display: inline-block;
+      }
+      /* вид текста label при активном переключателе */
+      .hide:checked + label {
+        color: @colorBlack;
+        border-bottom: 0;
+      }
+      /* когда чекбокс активен показываем блоки с содержанием  */
+      .hide:checked + label + div {
+        display: block;
+        margin-left: 20px;
+        padding: 10px;
+        /* чуточку анимации при появлении */
+        -webkit-animation: fade ease-in 0.5s;
+        -moz-animation: fade ease-in 0.5s;
+        animation: fade ease-in 0.5s;
+      }
+      /* анимация при появлении скрытых блоков */
+      @-moz-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .hide + label:before {
+        opacity: 0;
+      }
+      .hide:checked + label:before {
+        content: "\2212";
+      }
+    }
+  }
+  
+  #newsBlock {
+    & * {
+      cursor: default;
+    }
+    color: @colorWhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    }
+  
+    & span {
+      background-color: @colorWhite;
+    }
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding-top: 50px;
+        box-shadow: none;
+        background-color: @colorNews;
+        border-radius: 2200px;
+  
+        &:after {
+          width: 0;
+        }
+      }
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+  
+  /*citycity city city**********************************/
+  .cityBlock {
+    & .none__two {
+      opacity: 0;
+      cursor: default;
+    
+      &-two {
+        border-bottom: 2px solid @colorCity;
+        cursor: pointer;
+      }
+    }
+  
+    & h1 {
+      border-left: 8px solid @colorCity;
+      margin-bottom: 40px;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+  
+  
+      .items {
+        display: flex;
+        flex-direction: column;
+        &__item {
+          margin-bottom: 140px;
+          position: relative;
+          min-height: 300px;
+          border-radius: 5px;
+          background-color: @back;
+  
+          @media screen and (max-width: 768px) {
+            & > * {
+              padding-left: 5px;
+            }
+          }
+  
+          & .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(253, 253, 253, 0.404);
+            border-radius: 10px;
+          }
+  
+          & h3 {
+            padding-top: 100px;
+            font-size: 2rem;
+          }
+  
+          &__photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+  
+          transition: 0.2s ease;
+          &:hover {
+            background-color: @colorWhite;
+          }
+          box-sizing: content-box;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          background: @colorWhite;
+          display: flex;
+          flex-direction: column;
+  
+          & * {
+            font-size: 1.5rem;
+          }
+        }
+      }
+  
+      .hide,
+      .hide + label ~ div {
+        display: none;
+      }
+      /* вид текста label */
+      .hide + label {
+        margin: 0;
+        padding: 10px 0;
+        color: @colorBlack;
+        cursor: pointer;
+        display: inline-block;
+      }
+      /* вид текста label при активном переключателе */
+      .hide:checked + label {
+        color: @colorBlack;
+        border-bottom: 0;
+      }
+      /* когда чекбокс активен показываем блоки с содержанием  */
+      .hide:checked + label + div {
+        display: block;
+        margin-left: 20px;
+        padding: 10px;
+        /* чуточку анимации при появлении */
+        -webkit-animation: fade ease-in 0.5s;
+        -moz-animation: fade ease-in 0.5s;
+        animation: fade ease-in 0.5s;
+      }
+      /* анимация при появлении скрытых блоков */
+      @-moz-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .hide + label:before {
+        opacity: 0;
+      }
+      .hide:checked + label:before {
+        content: "\2212";
+      }
+    }
+  }
+  
+  #cityBlock {
+    & * {
+      cursor: default;
+    }
+    color: @colorWhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    }
+  
+    & span {
+      background-color: @colorWhite;
+    }
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding-top: 50px;
+        box-shadow: none;
+        background-color: @colorCity;
+        border-radius: 2200px;
+  
+        &:after {
+          width: 0;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .ideasBlock {
+    & .none__two {
+      opacity: 0;
+      cursor: default;
+    
+      &-two {
+        border-bottom: 2px solid  @colorInterest;
+        cursor: pointer;
+      }
+    }
+  
+    & h1 {
+      border-left: 8px solid @colorInterest;
+      margin-bottom: 40px;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+  
+  
+      .items {
+        display: flex;
+        flex-direction: column;
+        &__item {
+          margin-bottom: 140px;
+          position: relative;
+          min-height: 300px;
+          border-radius: 5px;
+          background-color: @back;
+  
+          @media screen and (max-width: 768px) {
+            & > * {
+              padding-left: 5px;
+            }
+          }
+  
+          & .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(253, 253, 253, 0.404);
+            border-radius: 10px;
+          }
+  
+          & h3 {
+            padding-top: 100px;
+            font-size: 2rem;
+          }
+  
+          &__photo {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+  
+          transition: 0.2s ease;
+          &:hover {
+            background-color: @colorWhite;
+          }
+          box-sizing: content-box;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          background: @colorWhite;
+          display: flex;
+          flex-direction: column;
+  
+          & * {
+            font-size: 1.5rem;
+          }
+        }
+      }
+  
+      .hide,
+      .hide + label ~ div {
+        display: none;
+      }
+      /* вид текста label */
+      .hide + label {
+        margin: 0;
+        padding: 10px 0;
+        color: @colorBlack;
+        cursor: pointer;
+        display: inline-block;
+      }
+      /* вид текста label при активном переключателе */
+      .hide:checked + label {
+        color: @colorBlack;
+        border-bottom: 0;
+      }
+      /* когда чекбокс активен показываем блоки с содержанием  */
+      .hide:checked + label + div {
+        display: block;
+        margin-left: 20px;
+        padding: 10px;
+        /* чуточку анимации при появлении */
+        -webkit-animation: fade ease-in 0.5s;
+        -moz-animation: fade ease-in 0.5s;
+        animation: fade ease-in 0.5s;
+      }
+      /* анимация при появлении скрытых блоков */
+      @-moz-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .hide + label:before {
+        opacity: 0;
+      }
+      .hide:checked + label:before {
+        content: "\2212";
+      }
+    }
+  }
+  
+  #ideaBlock {
+    & * {
+      cursor: default;
+    }
+    color: @colorWhite;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    }
+  
+    & span {
+      background-color: @colorWhite;
+    }
+  
+    @media screen and (max-width: 768px) {
+      & {
+        padding-top: 50px;
+        box-shadow: none;
+        background-color: @colorInterest;
+        border-radius: 2200px;
+  
+        &:after {
+          width: 0;
+        }
+      }
+    }
+  }

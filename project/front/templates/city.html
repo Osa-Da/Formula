@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/F.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <title>Formula</title>
+</head>
+<body>
+
+
+
+    
+<nav id="navBar">
+    <a onclick="menuShow()" id="btnMenu" href="#"></a>
+    <a  class="nav__link" href="{{ url_for('news') }}"><span></span><p>Новости</p></a>     
+    <a id="cityBlock" class="nav__link"><span></span><p>Мой город</p></a>     
+    <a class="nav__link" href="{{ url_for('ideas') }}"><span></span><p>Интересное</p></a>    
+    <a class="nav__link" href="{{ url_for('justice') }}"><span></span><p>Моё право</p></a>   
+    <a class="nav__link" href="{{ url_for('maps') }}"><span></span><p>Карты</p></a>    
+    <img src="{{ url_for('static', filename='img/logo/logo.svg') }}" alt="">
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{{ url_for('static', filename='img/Icon/marker.svg') }}" alt=""> Тюмень
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item hre" href="#">Екатеринбург</a>
+
+              <a class="dropdown-item" href="#">Сургут</a>
+          </li>
+    </ul>
+</nav>
+
+<section>
+    <div class="content-container">
+        <div class="cityBlock">
+            <h1>Новости <strong>Тюмень</strong></h1>
+
+            <div class="cityBlock__content">
+                <div class="cityBlock__content__item">
+                  <div class="items">
+                  {% for ad in ads %} 
+                    <div class="items__item">
+                        <input class="hide" id="hd-{{ ad['id'] }}" type="checkbox">
+                        <label class="items__item__photo" style="background-image:linear-gradient(#b1b1b13b, #ffffff), url({{ ad['images'] }});" for="hd-{{ ad['id'] }}">
+                          <span class="date">{{ ad['date'] }}
+                          </span><strong><h3>{{ ad['title'] }}</h3></strong>
+                          <p>{{ ad['description'] }}</p>
+                        </label>
+
+                        <div>
+                            {{ ad['text'] }}
+                            <br>
+                            <input class="none__two" id="hd-{{ ad['id'] }}" type="checkbox">
+                            <label class="none__two-two" for="hd-{{ ad['id'] }}"><strong>Закрыть</strong></label>
+                        </div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>::-webkit-scrollbar {
+    width: 1%;
+    height: 1%;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: #f1f1f1;
+    -webkit-border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: rgb(95, 189, 109);
+    -webkit-border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb:horizontal {
+    width: 5px;
+    background-color: rgb(95, 189, 109);
+    -webkit-border-radius: 20px;
+  }</style>
+
+</body>
+
+<script src="{{ url_for('static', filename='style/jQuery.js') }}"></script>
+<script src="{{ url_for('static', filename='style/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='style/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/main.js') }}"></script>
+<script src="{{ url_for('static', filename='style/jQuery.js') }}"></script>
+
+
+<script>
+  scrol2();
+  </script>
+<script type="text/javascript">
+    clock();
+</script>
+</html>
+
+
+
+
+  

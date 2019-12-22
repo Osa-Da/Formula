@@ -1,0 +1,889 @@
+@font-face {
+  font-family: "Monserat";
+  src: url(/static/fonts/Montserrat-Medium.ttf);
+}
+* {
+  margin: 0;
+  box-sizing: border-box !important;
+  padding: 0;
+  font-family: "Monserat", sans-serif !important;
+}
+html {
+  font-size: 14px;
+}
+a {
+  text-decoration: none !important;
+}
+.none {
+  opacity: 0;
+  cursor: default;
+}
+.none-two {
+  border-bottom: 2px solid #a7408d;
+  cursor: pointer;
+}
+.none__two {
+  opacity: 0;
+  cursor: default;
+}
+.none__two-two {
+  border-bottom: 2px solid #7a82c2;
+  cursor: pointer;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+nav {
+  z-index: 9999999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  padding: 10% 0 5%;
+  left: 0;
+  position: fixed;
+  min-height: 100%;
+  width: 60px;
+  background: #fefefe;
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 5px;
+}
+nav #btnMenu {
+  display: none;
+}
+nav > * {
+  font-size: 1rem;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #404040;
+  transition: 0.5s ease;
+}
+nav > *:nth-child(2) > span {
+  -webkit-mask: url(../img/Icon/1.svg) no-repeat;
+  mask: url(../img/Icon/1.svg) no-repeat;
+}
+nav > *:nth-child(2):after {
+  background-color: #7a82c2;
+}
+nav > *:nth-child(3) > span {
+  -webkit-mask: url(../img/Icon/2.svg) no-repeat;
+  mask: url(../img/Icon/2.svg) no-repeat;
+}
+nav > *:nth-child(3):after {
+  background-color: #5fbd6d;
+}
+nav > *:nth-child(4) > span {
+  -webkit-mask: url(../img/Icon/3.svg) no-repeat;
+  mask: url(../img/Icon/3.svg) no-repeat;
+}
+nav > *:nth-child(4):after {
+  background-color: #d4ce4d;
+}
+nav > *:nth-child(5) > span {
+  -webkit-mask: url(../img/Icon/4.svg) no-repeat;
+  mask: url(../img/Icon/4.svg) no-repeat;
+}
+nav > *:nth-child(5):after {
+  background-color: #a7408d;
+}
+nav > *:nth-child(6) > span {
+  -webkit-mask: url(../img/Icon/ss.svg) no-repeat;
+  mask: url(../img/Icon/ss.svg) no-repeat;
+}
+nav > *:nth-child(6):after {
+  background-color: #d67575;
+}
+nav > *:hover span {
+  background: #fefefe;
+}
+nav > *:hover {
+  border-right: 5px solid #22ae8b;
+  color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  nav > *:hover {
+    border: none !important;
+  }
+}
+nav > *:after {
+  display: block;
+  position: absolute;
+  right: 0;
+  /*изменить на right:0;, чтобы изменить направление подчёркивания */
+  width: 0;
+  /*задаём длинну линии до наведения курсора*/
+  height: 60px;
+  /*задаём ширину линии*/
+  content: "";
+  transition: width 0.3s ease-out;
+  /*задаём время анимации*/
+  z-index: -99999;
+}
+nav > *:hover:after {
+  width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+nav > * > p {
+  padding-top: 16px;
+  min-width: 150px;
+}
+nav > * > span {
+  margin-top: 5px;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background: #22ae8b;
+  transition: 0.2s ease;
+}
+nav > * > img {
+  height: 100%;
+  width: 50px;
+  margin-right: 5px;
+}
+nav:hover {
+  width: 200px;
+}
+nav:hover .navbar-nav {
+  opacity: 1;
+}
+nav img {
+  position: absolute;
+  top: 20px;
+  width: 90%;
+  border: none;
+}
+nav img:hover {
+  border: none;
+}
+@media screen and (max-width: 768px) {
+  nav img {
+    top: 10px;
+    width: 50%;
+    left: 5px;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    opacity: 1;
+    z-index: 9999999;
+    min-height: 50px;
+    height: 80px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    transition: 0.2s ease;
+  }
+  nav:hover {
+    width: 100%;
+  }
+  nav > span {
+    margin: 30px auto;
+  }
+  nav .nav__link {
+    width: 250px;
+    height: 250px;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+  }
+  nav .nav__link > span {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  nav #btnMenu {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 99999999;
+    background: url(../img/menu.svg);
+    width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .out {
+    transform: translateY(-100%);
+  }
+}
+section {
+  border: 1px solid #22ae8b;
+  background: #f1f1f1;
+  min-height: 100vh;
+  padding-left: 60px;
+}
+@media screen and (max-width: 768px) {
+  section {
+    padding: 0;
+    padding-top: 80px;
+  }
+}
+/*Классы ждя JS*/
+.menuShow {
+  height: 100%;
+  padding: 150px 0 0 0;
+}
+.menuShow > *,
+.menuShow span {
+  display: block !important;
+}
+.navbar-nav {
+  opacity: 0;
+  position: absolute;
+  width: 150px;
+  top: 80px;
+  left: 50px;
+  transition: 0.2s;
+  overflow: visible;
+}
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+  }
+}
+.navbar-nav:hover {
+  border: none;
+}
+.navbar-nav img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: -23px;
+  top: 10px;
+}
+.navbar-nav a {
+  color: #8f8f8f !important;
+}
+/*******************************************/
+.content-container {
+  margin: 0 auto;
+  max-width: 1080px;
+  padding-top: 50px;
+}
+.mapsBlock * {
+  color: #404040;
+}
+.mapsBlock h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  border-left: 8px solid #d67575;
+}
+@media screen and (max-width: 768px) {
+  .mapsBlock__maps {
+    padding: 0 10px;
+  }
+}
+.mapsBlock__maps__map h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.mapsBlock__maps__map p {
+  font-size: 1rem;
+  padding: 10px 0 50px;
+}
+.mapsBlock__maps__map p a {
+  border-bottom: 2px solid #22ae8b;
+}
+.mapsBlock__maps__map iframe {
+  border-radius: 5px;
+  width: 100%;
+  height: 60vh;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 3px solid #22ae8b;
+}
+.justiceBlock {
+  /* вид текста label */
+  /* вид текста label при активном переключателе */
+  /* когда чекбокс активен показываем блоки с содержанием  */
+  /* анимация при появлении скрытых блоков */
+}
+.justiceBlock * {
+  color: #404040;
+}
+.justiceBlock h1 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  border-left: 8px solid #a7408d;
+}
+.justiceBlock .items {
+  display: flex;
+  flex-direction: column;
+}
+.justiceBlock .items__item {
+  transition: 0.2s ease;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #fefefe;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+}
+.justiceBlock .items__item:hover {
+  background-color: rgba(173, 60, 135, 0.103);
+}
+.justiceBlock .items__item * {
+  font-size: 1.5rem;
+}
+.justiceBlock .hide,
+.justiceBlock .hide + label ~ div {
+  display: none;
+}
+.justiceBlock .hide + label {
+  margin: 0;
+  padding: 10px 0;
+  color: #404040;
+  cursor: pointer;
+  display: inline-block;
+}
+.justiceBlock .hide:checked + label {
+  color: #a7408d;
+  border-bottom: 0;
+}
+.justiceBlock .hide:checked + label + div {
+  display: block;
+  margin-left: 20px;
+  padding: 10px;
+  /* чуточку анимации при появлении */
+  -webkit-animation: fade ease-in 0.5s;
+  -moz-animation: fade ease-in 0.5s;
+  animation: fade ease-in 0.5s;
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.justiceBlock .hide + label:before {
+  background-color: #a7408d;
+  color: #fefefe;
+  content: "\002B";
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  height: 20px;
+  line-height: 16px;
+  margin: 3px 5px;
+  text-align: center;
+  width: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 20%;
+  padding-top: 2px;
+}
+.justiceBlock .hide:checked + label:before {
+  content: "\2212";
+}
+#mapBlock {
+  color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#mapBlock * {
+  cursor: default;
+}
+#mapBlock:after {
+  width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+#mapBlock span {
+  background-color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  #mapBlock {
+    padding-top: 50px;
+    box-shadow: none;
+    background-color: #d67575;
+    border-radius: 2200px;
+  }
+  #mapBlock:after {
+    width: 0;
+    /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+  }
+}
+#justiceBlock {
+  color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#justiceBlock * {
+  cursor: default;
+}
+#justiceBlock:after {
+  width: 100%;
+}
+#justiceBlock span {
+  background-color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  #justiceBlock {
+    padding-top: 50px;
+    box-shadow: none;
+    background-color: #a7408d;
+    border-radius: 2200px;
+  }
+  #justiceBlock:after {
+    width: 0;
+  }
+}
+.newsBlock h1 {
+  border-left: 8px solid #7a82c2;
+  margin-bottom: 40px;
+}
+.newsBlock__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* вид текста label */
+  /* вид текста label при активном переключателе */
+  /* когда чекбокс активен показываем блоки с содержанием  */
+  /* анимация при появлении скрытых блоков */
+}
+.newsBlock__content .items {
+  display: flex;
+  flex-direction: column;
+}
+.newsBlock__content .items__item {
+  margin-bottom: 140px;
+  position: relative;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  transition: 0.2s ease;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .newsBlock__content .items__item > * {
+    padding-left: 5px;
+  }
+}
+.newsBlock__content .items__item .date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(253, 253, 253, 0.404);
+  border-radius: 10px;
+}
+.newsBlock__content .items__item h3 {
+  padding-top: 100px;
+  font-size: 2rem;
+}
+.newsBlock__content .items__item__photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.newsBlock__content .items__item:hover {
+  background-color: #fefefe;
+}
+.newsBlock__content .items__item * {
+  font-size: 1.5rem;
+}
+.newsBlock__content .hide,
+.newsBlock__content .hide + label ~ div {
+  display: none;
+}
+.newsBlock__content .hide + label {
+  margin: 0;
+  padding: 10px 0;
+  color: #404040;
+  cursor: pointer;
+  display: inline-block;
+}
+.newsBlock__content .hide:checked + label {
+  color: #404040;
+  border-bottom: 0;
+}
+.newsBlock__content .hide:checked + label + div {
+  display: block;
+  margin-left: 20px;
+  padding: 10px;
+  /* чуточку анимации при появлении */
+  -webkit-animation: fade ease-in 0.5s;
+  -moz-animation: fade ease-in 0.5s;
+  animation: fade ease-in 0.5s;
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.newsBlock__content .hide + label:before {
+  opacity: 0;
+}
+.newsBlock__content .hide:checked + label:before {
+  content: "\2212";
+}
+#newsBlock {
+  color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#newsBlock * {
+  cursor: default;
+}
+#newsBlock:after {
+  width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+#newsBlock span {
+  background-color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  #newsBlock {
+    padding-top: 50px;
+    box-shadow: none;
+    background-color: #7a82c2;
+    border-radius: 2200px;
+  }
+  #newsBlock:after {
+    width: 0;
+  }
+}
+/*citycity city city**********************************/
+.cityBlock .none__two {
+  opacity: 0;
+  cursor: default;
+}
+.cityBlock .none__two-two {
+  border-bottom: 2px solid #5fbd6d;
+  cursor: pointer;
+}
+.cityBlock h1 {
+  border-left: 8px solid #5fbd6d;
+  margin-bottom: 40px;
+}
+.cityBlock__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* вид текста label */
+  /* вид текста label при активном переключателе */
+  /* когда чекбокс активен показываем блоки с содержанием  */
+  /* анимация при появлении скрытых блоков */
+}
+.cityBlock__content .items {
+  display: flex;
+  flex-direction: column;
+}
+.cityBlock__content .items__item {
+  margin-bottom: 140px;
+  position: relative;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  transition: 0.2s ease;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .cityBlock__content .items__item > * {
+    padding-left: 5px;
+  }
+}
+.cityBlock__content .items__item .date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(253, 253, 253, 0.404);
+  border-radius: 10px;
+}
+.cityBlock__content .items__item h3 {
+  padding-top: 100px;
+  font-size: 2rem;
+}
+.cityBlock__content .items__item__photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cityBlock__content .items__item:hover {
+  background-color: #fefefe;
+}
+.cityBlock__content .items__item * {
+  font-size: 1.5rem;
+}
+.cityBlock__content .hide,
+.cityBlock__content .hide + label ~ div {
+  display: none;
+}
+.cityBlock__content .hide + label {
+  margin: 0;
+  padding: 10px 0;
+  color: #404040;
+  cursor: pointer;
+  display: inline-block;
+}
+.cityBlock__content .hide:checked + label {
+  color: #404040;
+  border-bottom: 0;
+}
+.cityBlock__content .hide:checked + label + div {
+  display: block;
+  margin-left: 20px;
+  padding: 10px;
+  /* чуточку анимации при появлении */
+  -webkit-animation: fade ease-in 0.5s;
+  -moz-animation: fade ease-in 0.5s;
+  animation: fade ease-in 0.5s;
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.cityBlock__content .hide + label:before {
+  opacity: 0;
+}
+.cityBlock__content .hide:checked + label:before {
+  content: "\2212";
+}
+#cityBlock {
+  color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#cityBlock * {
+  cursor: default;
+}
+#cityBlock:after {
+  width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+#cityBlock span {
+  background-color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  #cityBlock {
+    padding-top: 50px;
+    box-shadow: none;
+    background-color: #5fbd6d;
+    border-radius: 2200px;
+  }
+  #cityBlock:after {
+    width: 0;
+  }
+}
+.ideasBlock .none__two {
+  opacity: 0;
+  cursor: default;
+}
+.ideasBlock .none__two-two {
+  border-bottom: 2px solid #d4ce4d;
+  cursor: pointer;
+}
+.ideasBlock h1 {
+  border-left: 8px solid #d4ce4d;
+  margin-bottom: 40px;
+}
+.ideasBlock__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  /* вид текста label */
+  /* вид текста label при активном переключателе */
+  /* когда чекбокс активен показываем блоки с содержанием  */
+  /* анимация при появлении скрытых блоков */
+}
+.ideasBlock__content .items {
+  display: flex;
+  flex-direction: column;
+}
+.ideasBlock__content .items__item {
+  margin-bottom: 140px;
+  position: relative;
+  min-height: 300px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  transition: 0.2s ease;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .ideasBlock__content .items__item > * {
+    padding-left: 5px;
+  }
+}
+.ideasBlock__content .items__item .date {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(253, 253, 253, 0.404);
+  border-radius: 10px;
+}
+.ideasBlock__content .items__item h3 {
+  padding-top: 100px;
+  font-size: 2rem;
+}
+.ideasBlock__content .items__item__photo {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.ideasBlock__content .items__item:hover {
+  background-color: #fefefe;
+}
+.ideasBlock__content .items__item * {
+  font-size: 1.5rem;
+}
+.ideasBlock__content .hide,
+.ideasBlock__content .hide + label ~ div {
+  display: none;
+}
+.ideasBlock__content .hide + label {
+  margin: 0;
+  padding: 10px 0;
+  color: #404040;
+  cursor: pointer;
+  display: inline-block;
+}
+.ideasBlock__content .hide:checked + label {
+  color: #404040;
+  border-bottom: 0;
+}
+.ideasBlock__content .hide:checked + label + div {
+  display: block;
+  margin-left: 20px;
+  padding: 10px;
+  /* чуточку анимации при появлении */
+  -webkit-animation: fade ease-in 0.5s;
+  -moz-animation: fade ease-in 0.5s;
+  animation: fade ease-in 0.5s;
+}
+@-moz-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.ideasBlock__content .hide + label:before {
+  opacity: 0;
+}
+.ideasBlock__content .hide:checked + label:before {
+  content: "\2212";
+}
+#ideaBlock {
+  color: #fefefe;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+#ideaBlock * {
+  cursor: default;
+}
+#ideaBlock:after {
+  width: 100%;
+  /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+}
+#ideaBlock span {
+  background-color: #fefefe;
+}
+@media screen and (max-width: 768px) {
+  #ideaBlock {
+    padding-top: 50px;
+    box-shadow: none;
+    background-color: #d4ce4d;
+    border-radius: 2200px;
+  }
+  #ideaBlock:after {
+    width: 0;
+  }
+}

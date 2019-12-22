@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/F.png') }}" >
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/F.png') }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/main.css') }}">
+    <title>Formula</title>
+</head>
+<body>
+    
+<nav id="navBar">
+    <a onclick="menuShow()" id="btnMenu" href="#"></a>
+
+    <a class="nav__link" href="{{ url_for('news') }}"><span></span><p>Новости</p></a>     
+    <a class="nav__link" href="{{ url_for('city') }}"><span></span><p>Мой город</p></a>     
+    <a class="nav__link" href="{{ url_for('ideas') }}"><span></span><p>Интересное</p></a>   
+    <a class="nav__link" href="{{ url_for('justice') }}"><span></span><p>Моё право</p></a>   
+    <a id="mapBlock" class="nav__link"><span></span><p>Карты</p></a>    
+    <img src="{{ url_for('static', filename='img/logo/logo.svg') }}" alt="">
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{{ url_for('static', filename='img/Icon/marker.svg') }}" alt=""> Тюмень
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item hre" href="#">Екатеринбург</a>
+
+              <a class="dropdown-item" href="#">Сургут</a>
+          </li>
+    </ul>
+</nav>
+
+<section>
+    <div class="content-container">
+        <div class="mapsBlock">
+            <h1>Карты на все случаи жизни</h1>
+
+            <div class="mapsBlock__maps">
+                <div class="mapsBlock__maps__map">
+                    <h2>Камеры ДПС</h2>
+
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CGtjuB5g" width="560" height="400" frameborder="1" allowfullscreen="true"></iframe>
+
+                    <p>Отдел ДПС в <strong>Тюмени</strong> находится по адресу: <br>ул. Одесская, 16, Тюмень, Тюменская обл., 625023  </p>
+                </div>
+
+                <div class="mapsBlock__maps__map">
+                    <h2>Автомастерские</h2>
+
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CGtj5Rj5" frameborder="1" allowfullscreen="true"></iframe>
+
+                    <p>Автомастерские и СТО станции находящиеся</p>
+                </div>
+
+                <div class="mapsBlock__maps__map">
+                    <h2>Гостиницы и отели</h2>
+
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CGtjy2Yy" width="560" height="400" frameborder="1" allowfullscreen="true"></iframe>
+
+                    <p>Собрались путешествовать ? <br>
+                        Этот <a href="https://www.petrolplus.ru/fuelstations/"><strong>сервис</strong></a> позволит расчитать маршрут в денежном эквиваленте с учетом необходимых трат на топливо и расстояния
+                    </p>
+                </div>
+            </div>
+
+            <div class="mapsBlock__maps">
+                <div class="mapsBlock__maps__map">
+                    <h2>Пробки</h2>
+
+                    <iframe src="https://yandex.ru/map-widget/v1/-/CZD2M-1t" width="560" height="400" frameborder="1" allowfullscreen="true"></iframe>
+
+                    <p>Час-пик в городе <strong>Тюмень</strong> начинается с : <br>
+                    07:00 по 09:20 <br>
+                16:40 по 20:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>::-webkit-scrollbar {
+    width: 1%;
+    height: 1%;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: #f1f1f1;
+    -webkit-border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+    background-color: rgb(214, 117, 117);
+    -webkit-border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb:horizontal {
+    width: 5px;
+    background-color: rgb(214, 117, 117);
+    -webkit-border-radius: 20px;
+  }</style>
+
+</body>
+
+<script src="{{ url_for('static', filename='style/jQuery.js') }}"></script>
+<script src="{{ url_for('static', filename='style/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='style/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/main.js') }}/"></script>
+</html>
